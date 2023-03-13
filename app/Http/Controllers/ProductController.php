@@ -40,9 +40,8 @@ class ProductController extends Controller
         if($validate->fails()){
             return fail("error",$validate->errors(),422);
         }
-        $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
-        $description = $converter->convert($req->get('description'))->getContent();
-        $reqs = $req->request->add(["description"=>$description]);
+       // $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
+       // $description = $converter->convert($req->get('description'))->getContent(); --> i dont need
         $products = $this->productRepositry->store($req->all());
         return success("success", new ProductCollection($products));
 
@@ -68,9 +67,8 @@ class ProductController extends Controller
         if($validate->fails()){
             return fail("error",$validate->errors(),422);
         }
-        $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
-        $description = $converter->convert($req->get('description'))->getContent();
-        $req->request->add(["description"=>$description]);
+       // $converter = new CommonMarkConverter(['html_input' => 'escape', 'allow_unsafe_links' => false]);
+        //$description = $converter->convert($req->get('description'))->getContent(); --> i dont need
         $product = $this->productRepositry->update($id,$req->all());
         return success("success", new ProductCollection($product));
 
