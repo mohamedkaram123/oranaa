@@ -28,7 +28,7 @@ class ShowStatistics extends Command
      *
      * @var string
      */
-    protected $description = 'the command for show any report';
+    protected $description = 'the command for show any report about statistics , there are 5 types --> total_products [and] total_product_each_website [and] avg_total_price [and] website_highest_total_price  [and] total_price_during_month';
 
     /**
      * Execute the console command.
